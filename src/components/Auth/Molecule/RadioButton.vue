@@ -11,20 +11,31 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref, defineProps } from "vue";
+<script lang="ts">
+import Vue, { ref, defineEmits } from "vue";
 
-defineProps({
-  data: Array,
+export default Vue.extend({
+  name: "RadioButton",
+  props: {
+    data: Array,
+  },
+  setup(props, { emit }) {
+    const selectedIndex = ref(-1);
+    const changeSelectedIndex = (index: number) => {
+      selectedIndex.value = index;
+      emit("change:item", props.data[index]);
+    };
+
+    const setSelectedButtonClass = (index: number) =>
+      index === selectedIndex.value ? "light-navy-button" : "";
+
+    return {
+      selectedIndex,
+      changeSelectedIndex,
+      setSelectedButtonClass,
+    };
+  },
 });
-
-const selectedIndex = ref(-1);
-
-const changeSelectedIndex = (index: number) => {
-  selectedIndex.value = index;
-};
-const setSelectedButtonClass = (index: number) =>
-  index === selectedIndex.value ? "light-navy-button" : "";
 </script>
 
 <style scoped lang="scss">
