@@ -1,32 +1,24 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
-  </div>
+  <v-app class="app">
+    <router-view></router-view>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from "vue";
+export default Vue.extend({
+  name: "App",
+  data: () => ({
+    //
+  }),
+});
+</script>
 
-nav {
-  padding: 30px;
+<style scoped lang="scss">
+.v-application {
+  font-family: SUIT, serif;
 }
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.app {
+  background-image: url("~@/assets/login_bg.png");
 }
 </style>

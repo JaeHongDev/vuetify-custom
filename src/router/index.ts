@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-
+import LoginPage from "@/pages/LoginPage.vue";
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
@@ -18,6 +18,11 @@ const routes: Array<RouteConfig> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+  },
+  {
+    path: "/auth",
+    name: "loginPage",
+    component: LoginPage,
   },
 ];
 
