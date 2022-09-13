@@ -12,6 +12,7 @@ export default class AuthService {
     const result = await axios.get(
       `http://localhost:8080/company/abbreviation/${consonant}`
     );
+    console.log(result);
     return result.data;
   }
 }

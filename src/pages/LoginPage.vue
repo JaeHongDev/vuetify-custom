@@ -45,6 +45,7 @@
 <script>
 import AuthService from "@/data/auth";
 import RadioButton from "@/components/Auth/Molecule/RadioButton.vue";
+
 import Vue, { reactive, ref } from "vue";
 
 export default Vue.extend({

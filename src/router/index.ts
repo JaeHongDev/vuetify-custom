@@ -1,28 +1,36 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+
 import LoginPage from "@/pages/LoginPage.vue";
+
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    component: LoginPage,
   },
-  {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  },
+  /**
+   * 전체 로그인
+   * */
   {
     path: "/auth",
     name: "loginPage",
     component: LoginPage,
+  },
+  /**
+   * 관리자 페이지 (기업별 로그인)
+   * */
+  {
+    path: "/:abbreviation/auth",
+    name: "abbreviation-auth",
+  },
+  /**
+   * 발신번호 관리
+   * */
+  {
+    path: "/:abbreviation/admin/manage-caller-id",
+    name: "abbreviation-auth-admin-manage-caller-id",
   },
 ];
 
